@@ -1,8 +1,0 @@
-'''
-Created on 2018年5月3日
-
-@author: zhang
-'''
-import time
-
-print(help(time))
