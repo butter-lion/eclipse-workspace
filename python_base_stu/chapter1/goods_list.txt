@@ -1,0 +1,8 @@
+apple phone X,5000
+watch,3000
+computer,7000
+book,70
+cap,20
+water,10
+tree,300
+basketball,200

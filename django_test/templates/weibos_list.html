@@ -1,0 +1,17 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN".
+<html lang = "en">
+<head>
+	<title>My Weibo</title>
+</head>
+<body>
+	<p>Weibo list!</p>
+	<table border = '1' width = '1000' >
+		<tr><th width = '200'>Title</th><th width = '150'>Author</th><th>Content</th></tr>
+		{% for list in lists %}
+		<tr><td><a href = "/weibos_list/{{list.id}}">{{list.title}}</a></td><td>{{list.author}}</td><td>{{list.content}}</td></tr>
+	{% endfor %}
+	</table>
+	<h1><a href = '/weibo_remake/0/'>添加文章</a></h1>
+
+</body>
+</html>
