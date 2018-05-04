@@ -1,0 +1,9 @@
+'''
+Created on 2018年4月8日
+
+@author: zhang
+'''
+from django.http import HttpResponse
+
+def hello(request):
+    return HttpResponse("Hello world")

@@ -1,0 +1,14 @@
+'''
+Created on 2018年5月3日
+
+@author: zhang
+'''
+import shutil
+
+f1 = open('本届笔记')
+
+f2 = open('笔记本2','wb')
+
+shutil.copyfileobj(f1, f2)
+
+

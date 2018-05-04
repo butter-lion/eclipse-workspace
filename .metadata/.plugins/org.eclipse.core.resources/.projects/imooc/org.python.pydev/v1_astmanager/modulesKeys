@@ -1,0 +1,8 @@
+MODULES_MANAGER_V2
+baike_spider.__init__|C:\Users\zhang\Desktop\eclipse-workspace\imooc\baike_spider\__init__.py
+baike_spider.html_downloader|C:\Users\zhang\Desktop\eclipse-workspace\imooc\baike_spider\html_downloader.py
+baike_spider.html_outputer|C:\Users\zhang\Desktop\eclipse-workspace\imooc\baike_spider\html_outputer.py
+baike_spider.html_parser|C:\Users\zhang\Desktop\eclipse-workspace\imooc\baike_spider\html_parser.py
+baike_spider.spyder_main|C:\Users\zhang\Desktop\eclipse-workspace\imooc\baike_spider\spyder_main.py
+baike_spider.test_requests|C:\Users\zhang\Desktop\eclipse-workspace\imooc\baike_spider\test_requests.py
+baike_spider.url_manager|C:\Users\zhang\Desktop\eclipse-workspace\imooc\baike_spider\url_manager.py

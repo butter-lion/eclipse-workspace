@@ -1,0 +1,31 @@
+'''
+Created on 2018年4月12日
+
+@author: zhang
+'''
+from django.core.mail import send_mail
+from django.http.response import HttpResponseRedirect, HttpResponse
+from django.shortcuts import render
+
+def contact_thanks(request):
+    return HttpResponse('welcome to join us')
+
+def contact(request):
+    errors = []
+    if request.method == 'POST':
+        if not request.POST.get('subject', ''):
+            errors.append('Enter a subject.')
+        if not request.POST.get('message', ''):
+            errors.append('Enter a message.')
+        if request.POST.get('email') and '@' not in request.POST['email']:
+            errors.append('Enter a valid e-mail address.')
+        if not errors:
+            send_mail(
+                request.POST['subject'],
+                request.POST['message'],
+                '540658957@qq.com',
+                [request.POST['email']],
+            )
+            return HttpResponseRedirect('/contact/thanks/')
+    html =  render(request,'contact_form.html',{'errors': errors})
+    return html

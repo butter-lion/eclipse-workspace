@@ -1,0 +1,51 @@
+'''
+Created on 2018年4月27日
+
+@author: zhang
+'''
+import os,sys
+import json
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.append(BASE_DIR)
+def add_goods():
+    with open ('../database/goods.json','r+',encoding = 'UTF-8') as f:
+        good = input('Please enter good:')
+        price = int(input('Plese enter price:'))
+        g = json.load(f)
+        g.append((good,price))
+        f.seek(0)
+        f.write(json.dumps(g))
+        print('add goods success!')
+        print (f)
+#add_goods()
+ 
+def shopping():
+    #创建货物列表goods
+    goods=[]
+    #创建购物车列表
+    shopping_cart=[]
+    with open ('../database/goods.json','r+',encoding = 'UTF-8') as f:
+        #将货物添加进列表
+        goods = json.load(f)
+        for i in range(len(goods)):
+            h = str(i+1)
+            p = str(goods[i][1])
+            #打印货物列表
+            print ('id:'+h+' '+goods[i][0]+' '+p)
+    print('quit enter "q"')
+    
+    while True:       
+        id = input('Please enter id of you buy:')
+        if id == 'q':
+            break
+        else:
+            id =int(id)-1
+            shopping_cart.append(goods[id])
+    with open('../database/shopping_cart.json','w') as f:
+              f.write(json.dumps(shopping_cart))    
+            
+            
+        
+        
+           
+shopping()
