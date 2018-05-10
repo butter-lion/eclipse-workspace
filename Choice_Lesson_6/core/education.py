@@ -26,7 +26,7 @@ class School(object):
         self.teachers.append(tea_obj)
         print('%s is hire successful by school %s'%(tea_obj.name,self.name))
     #解雇老师
-    def del_teache(self,tea_obj):
+    def del_teacher(self,tea_obj):
         self.teachers.remove(tea_obj)
         print('%s is fire by school %s'%(tea_obj.name,self.name))
 
@@ -35,10 +35,14 @@ class School(object):
         self.courses.append(cour_obj)
         print('%s have create lesson %s'%(self.name,cour_obj.name))
     #注册班级
-    def add_grade(self,grade):    
+    def add_grades(self,grade):    
         self.grades.append(grade)
         print('%s have create grade %s'%(self.name,grade.name))
-    
+        
+    def show_info(self):    
+        print("school:name: %s\t school.addr:%s\t grades:%s\t courses:%s\t teachers:%s\t students:%s"%
+              (self.name, self.addr,[x.name for x in self.grades], [x.name for x in self.courses], [x.name for x in self.teachers], [x.name for x in self.students]))
+
 #    def __str__(self):
 #        return self.name
 #创建Course类       
@@ -58,17 +62,17 @@ class Grade(object):
         self.teacher = teacher
         self.students = []
         
-    def enroll(self, student):  # 学员注册
+    def add_student(self, student):  # 学员注册
         self.students.append(student)
         print("%s enroll in %s " % (student.name, self.name))
 
-    def leave_grade(self, student): # 学员离开
+    def del_student(self, student): # 学员离开
         self.students.remove(student)
         print("%s leave grade from %s " % (student.name, self.name))
-
+        
     def show_info(self):
         print("grade:name: %s\t teacher:%s\t course:%s\t students:%s"%
-              (self.name, self.teacher, self.course, self.students))
+              (self.name, self.teacher.name, self.course.name, [x.name for x in self.students]))
     
 #    def __str__(self):
 #        return self.name   
@@ -113,7 +117,7 @@ class Teacher(SchoolMenber):
         self.grade = grade
         
     #显示所选班级学生
-    def show_student(self):
+    def show_students(self):
         if self.grade != None:
             for student in self.grade.students:
                 student.show_info()
@@ -125,11 +129,11 @@ class Teacher(SchoolMenber):
         
     #展示老师信息
     def show_info(self):
-        print("teacher:name: %s\t age: %s\t sex: %s\t school:%s\t grade:%s"%
-              (self.name, self.age, self.sex, self.school, self.grade))
+        print("teacher:name: %s\t age: %s\t sex: %s\t school:%s\t grades:%s"%
+              (self.name, self.age, self.sex, self.school.name, [x.name for x in self.grades]))
         
 #创建Student类
-def Student(SchoolMenber):
+class Student(SchoolMenber):
     def __init__(self,name,age,sex,school,grade,score = 0):
         super(Student,self).__init__(name,age,sex)
         self.course = []
@@ -142,14 +146,14 @@ def Student(SchoolMenber):
     #学生选择学校    
     def choose_school(self,school):
         if self.school != None:
-            self.shcool.del_student(self)
-            school.enroll(self)
+            self.school.del_student(self)
+            school.add_student(self)
         self.school = school
     #学生选择班级    
     def choose_grade(self,grade):
         if self.grade != None:
             self.grade.del_student(self)
-            grade.enroll(self)
+            grade.add_student(self)
         self.grade = grade
         
     def pay_tuition(self, money):
@@ -157,4 +161,5 @@ def Student(SchoolMenber):
     #展示学生信息
     def show_info(self):
         print("student:name: %s\t school:%s\t grade:%s\t score:%s\t tuition:%s"%
-              (self.name, self.school, self.grade, self.score, self.tuition))
+              (self.name, self.school.name, self.grade.name, self.score, self.tuition))
+

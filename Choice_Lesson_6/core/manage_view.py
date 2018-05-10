@@ -33,7 +33,7 @@ def add_grade():
         return add_grade()
     
     print('请选择教师：')
-    data.print_teachers()
+    data.print_school_teachers(school)
     teacher_name = input('教师名：')
     teacher = data.get_teacher(teacher_name)
     if teacher == None:
@@ -41,7 +41,7 @@ def add_grade():
         return add_grade()
     
     print('请选择课程：')
-    data.print_courses()
+    data.print_school_courses(school)
     course_name = input('课程名：')
     course = data.get_course(course_name)
     if course == None:
@@ -50,8 +50,10 @@ def add_grade():
     #生成Grade对象
     grade= education.Grade(grade_name, course, teacher)
     #将新建Grade添加进school
-    school.add_grade(grade)
+    grade.teacher.grades.append(grade)
+    school.add_grades(grade)
     #更新grade和school列表
+    data.update_teacher(grade.teacher)
     data.update_grade(grade)
     data.update_school(school)
     print("班级 %s 创建成功！"% grade.name)
@@ -92,7 +94,9 @@ def add_teacher():
     
     teacher = education.Teacher(teacher_name,teacher_age,teacher_sex,school)
     school.add_teacher(teacher)
-    data.update_teacher(teacher)
+    for t in school.teachers:
+        t.school = school
+        data.update_teacher(t)
     data.update_school(school)
     print("老师 %s 创建成功！"% teacher.name)
     
@@ -119,13 +123,35 @@ def show_teacher():
 
     teacher.show_info()
 
+def show_grade():
+    print("选择课程：")
+    data.print_grades()
+    grade_name = input("课程名：")
+    grade = data.get_grade(grade_name)
+    if grade == None:
+        print("老师选择错误")
+        return
+
+    grade.show_info()
+    
+
+def show_school():
+    print('选择学校：')
+    data.print_schools()
+    school_name = input("学校名：")
+    school = data.get_school(school_name)
+    if school == None:
+        print("学校选择错误")
+        return
+    school.show_info()
+    
 def manage_server():
     print("管理视图：")
     print("=" * 20)
     while True:
         print("1.增加学校\n2.增加老师\n3.增加课程\n4.增加班级\n"
               "5.查看学校\n6.查看老师\n7.查看课程\n8.查看班级\n"
-              "9.查看教师详细\n"
+              "9.查看教师详细\n10.查看班级详细\n11.查看学校详细\n"
               "0.退出")
         res = input("输入序号：")
 
@@ -147,6 +173,12 @@ def manage_server():
             show_grades()
         elif res == "9":
             show_teacher()
+        elif res == "9":
+            show_teacher()
+        elif res == "10":
+            show_grade()
+        elif res == "11":
+            show_school()
         elif res == "0":
             print("退出成功！")
             break

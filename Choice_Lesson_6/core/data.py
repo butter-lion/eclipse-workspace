@@ -39,6 +39,47 @@ def print_infos(key):
     for key2 in infos.get(key):
         print("\t", key2, ":", infos.get(key).get(key2))
     print("=" * 50)
+
+#打印某所学校的班级
+def print_school_grades(school):
+    key = school
+    print(key.name.center(50, "="))
+    print("\t", "班级", ":", "对象")
+    print("\t", "-"*30)
+    for key2 in key.grades:
+        print("\t", key2.name, ":", key)
+    print("=" * 50)
+    
+#打印某老师的班级
+def print_teacher_grades(teacher):
+    key = teacher
+    print(key.name.center(50, "="))
+    print("\t", "班级", ":", "对象")
+    print("\t", "-"*30)
+    for key2 in key.grades:
+        print("\t", key2.name, ":", key)
+    print("=" * 50)
+    
+#打印某学校的老师
+def print_school_teachers(school):
+    key = school
+    print(key.name.center(50, "="))
+    print("\t", "教师", ":", "对象")
+    print("\t", "-"*30)
+    for key2 in key.teachers:
+        print("\t", key2.name, ":", key)
+    print("=" * 50)
+
+#打印某学校的课程
+def print_school_courses(school):
+    key = school
+    print(key.name.center(50, "="))
+    print("\t", "教师", ":", "对象")
+    print("\t", "-"*30)
+    for key2 in key.courses:
+        print("\t", key2.name, ":", key)
+    print("=" * 50)
+    
     
 def print_schools():
     key = "schools"
@@ -160,3 +201,6 @@ def init():
 
 if __name__ == '__main__':
     init()    
+
+
+
