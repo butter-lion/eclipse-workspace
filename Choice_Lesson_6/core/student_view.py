@@ -26,13 +26,13 @@ def add_student():
         return add_student()
     
     print("选择班级：")
-    data.print_school_grade(school)
+    data.print_school_grades(school)
     grade_name = input("班级名：")
     grade = data.get_grade(grade_name)
     if grade == None:
         print("学校选择错误")
         return add_student()
-    
+
     student = education.Student(student_name,student_age,student_sex,school,grade)
     school.add_student(student)
     grade.add_student(student)
@@ -76,7 +76,7 @@ def choose_grade():
         return add_student()
     
     print("选择班级：")
-    data.print_school_grade(school)
+    data.print_school_grades(school)
     grade_name = input("班级名：")
     grade = data.get_grade(grade_name)
     if grade == None:
@@ -106,9 +106,9 @@ def show_student_info():
     student.show_info()
     
 def student_server():
-    print("学生视图：")
-    print("=" * 20)
     while True:
+        print("学生视图：")
+        print("=" * 20)
         print("1.注册学生\n2.交学费\n3.选择课程\n4.查看学生\n"
               "5.查看明细\n0.退出")
         res = input("输入序号：")

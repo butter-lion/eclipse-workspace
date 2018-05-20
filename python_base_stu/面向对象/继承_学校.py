@@ -3,7 +3,6 @@ Created on 2018年5月6日
 
 @author: zhang
 '''
-from astropy.wcs.docstrings import name
 
 class School(object):
     def __init__(self,name,addr):

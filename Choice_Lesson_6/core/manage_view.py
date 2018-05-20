@@ -146,9 +146,9 @@ def show_school():
     school.show_info()
     
 def manage_server():
-    print("管理视图：")
-    print("=" * 20)
     while True:
+        print("管理视图：")
+        print("=" * 20)
         print("1.增加学校\n2.增加老师\n3.增加课程\n4.增加班级\n"
               "5.查看学校\n6.查看老师\n7.查看课程\n8.查看班级\n"
               "9.查看教师详细\n10.查看班级详细\n11.查看学校详细\n"

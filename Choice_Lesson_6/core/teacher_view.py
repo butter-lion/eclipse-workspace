@@ -83,9 +83,9 @@ def teacher_modify_score(teacher):
     print("%s 的成绩修改为: %s" % (student.name, data.get_student(student_name).score))
     
 def teacher_server():
-    print("教师视图：")
-    print("=" * 20)
     while True:
+        print("教师视图：")
+        print("=" * 20)
         t = teacher_enter()
         if t == None:
             return

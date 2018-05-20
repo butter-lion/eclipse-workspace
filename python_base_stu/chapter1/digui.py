@@ -12,9 +12,7 @@ def bounce_height_recursion(h,n, rate = 0.6):
     
     
     
-if  __name__ == '__main__':
+if __name__ == '__main__':
     h = int(input('Please enter the height of the ball:\n'))
     n = int(input('Please enter thr bounce times of the ball:\n'))
-    print (bounce_height_recursion(h, n))
-    
-    
+    print(bounce_height_recursion(h, n))

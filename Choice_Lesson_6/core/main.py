@@ -12,9 +12,9 @@ sys.path.append(BASE_PATH)
 from core import teacher_view, student_view, manage_view
 
 def run_server():
-    print("主界面：")
-    print("=" * 20)
     while True:
+        print("主界面：")
+        print("=" * 20)
         print("1.学生模块\n2.教师模块\n3.管理模块\n0.退出")
         res = input("输入序号：")
         if res == "1": 
