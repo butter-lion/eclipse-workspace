@@ -7,13 +7,28 @@ Created on 2018年5月17日
 import socketserver
 import json
 import os,sys
+import selectors
 
 BASE_PATH = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.append(BASE_PATH)
 
 from core import data
 
+sel = selectors.DefaultSelector()
+
+def accept(sock,mask):
+    conn,addr = sock.accept()
+    print('accept:',conn,'from',addr)
+    conn.setblocking(False)
+    sel.register(conn,selectors.EVENT_READ,MyTCPHandler.handle)
+
 class MyTCPHandler(socketserver.BaseRequestHandler):
+
+    def accept(self, mask):
+        conn, addr = self.request.accept()
+        print('accept:', conn, 'from', addr)
+        conn.setblocking(False)
+        sel.register(conn, selectors.EVENT_READ, MyTCPHandler.handle)
 
     def register(self,*args):
         cmd_dic = args[0]
@@ -149,5 +164,5 @@ class MyTCPHandler(socketserver.BaseRequestHandler):
 if __name__ == '__main__':
     HOST,PORT = 'localhost' , 9000
     # creat the server,blinding to localhost on port
-    server = socketserver.ThreadingTCPServer((HOST,PORT),MyTCPHandler)
+    server = socketserver.TCPServer((HOST,PORT),MyTCPHandler)
     server.serve_forever()
