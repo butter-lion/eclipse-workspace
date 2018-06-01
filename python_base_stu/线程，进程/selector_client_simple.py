@@ -51,6 +51,14 @@ class FTPclient(object):
         f.close()
         print("filename:", filename, "filesize", filesize, "send ok:" )
 
+    def dir(self):
+        msg_send = {
+            'action':'dir'
+        }
+        self.conn.send(json.dumps(msg_send).encode('utf-8'))
+        msg_recv = self.conn.recv(1024).decode()
+        print(msg_recv)
+
     def interactive(self):
         while True:
             cmd = input(">>>:").strip()
@@ -58,6 +66,8 @@ class FTPclient(object):
                 continue
             elif cmd == "exit":
                 exit()
+            elif cmd == 'ls':
+                self.dir()
             else:
                 action = cmd.split()[0]
                 if hasattr(self,action):

@@ -48,8 +48,8 @@ class FTPserver(object):
                     msg = json.loads(data.decode("utf-8"))
                     print("msg:",msg,"from conn:",conn)
                     action = msg["action"]
-                    filename = msg["filename"]
                     if "get" == action:
+                        filename = msg["filename"]
                         msg['filesize'] = os.path.getsize(filename)
                         conn.send((json.dumps(msg)).encode("utf-8"))
                         msg["send_size"] = 0
@@ -60,12 +60,15 @@ class FTPserver(object):
                         self.sel.modify(conn, selectors.EVENT_WRITE, self.download)
 
                     elif "put" == action:
+                        filename = msg["filename"]
                         msg["get_size"] = 0
                         fd = open(filename, "wb")
                         msg["wfd"] = fd
                         self.up_dict[conn] = msg
                         conn.send(b'ready to recieve')
                         self.sel.modify(conn, selectors.EVENT_READ, self.updata)
+                    elif action == 'dir':
+                        self.sel.modify(conn, selectors.EVENT_WRITE, self.dir)
                     else:
                         print('func matching miss:', msg)
                 except Exception as e:
@@ -96,6 +99,11 @@ class FTPserver(object):
                     break
         except BlockingIOError:
             return
+
+    def dir(self,conn):
+        path = os.getcwd()
+        conn.send(path.encode('utf-8'))
+        self.sel.modify(conn, selectors.EVENT_READ, self.read)
 
     def updata(self,conn):
         f = self.up_dict[conn]["wfd"]

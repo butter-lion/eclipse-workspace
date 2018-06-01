@@ -52,7 +52,7 @@ def balance(admin):
         buy_goods = json.load(f)
         for good in buy_goods:
             totle_money = good[1] + totle_money
-    if admin.money  >totle_money:
+
                
     
             
