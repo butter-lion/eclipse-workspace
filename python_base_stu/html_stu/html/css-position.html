@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Position</title>
+    <style>
+        .pg_header{
+            height:48px;
+            width:100%;
+            background-color:gray;
+            position:fixed;
+            top:0;
+            }
+        .pg_top{
+            height:48px;
+            width:48px;
+            background-color:black;
+            position:fixed;
+            bottom:20px;
+            right:20px;
+            color:white
+            }
+        .pg_body{
+            margin-top:0;
+            height:5000px;
+            background-color:#e6dbdb}
+    </style>
+</head>
+<body>
+    <div class='pg_header'>我来组成头部 </div>
+    <div id='body' style='height:50px'></div>
+    <div class='pg_body'>我来组成身体 </div>
+    <a href='#body'>
+        <div class='pg_top'>我来跳转顶部</div>
+    </a>
+
+</body>
+</html>

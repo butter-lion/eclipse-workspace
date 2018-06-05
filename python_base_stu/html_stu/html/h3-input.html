@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Input</title>
+</head>
+<body>
+    <form action=''>
+        <h3>登陆</h3>
+         <br/>
+        <input type='text' name='user'>
+        <input type='password' name='psw'>
+        <br/>
+        <h3>性别</h3>
+        男：<input type='radio' name='sex'>
+        女：<input type='radio' name='sex'>
+        alien：<input type='radio' name='sex'>
+        <h3>爱好</h3>
+        篮球：<input type='checkbox'>
+        足球：<input type='checkbox'>
+        乒乓球：<input type='checkbox'>
+        网球：<input type='checkbox'>
+        羽毛球：<input type='checkbox'>
+        皮球：<input type='checkbox'>
+        <h3>说明</h3>
+        <textarea > 哈哈,这并没有什么用</textarea>
+        <h4>下拉选项</h4>
+        <select name="cars">
+            <option value="volvo">Volvo</option>
+            <option value="saab" selected='selected'>Saab</option>
+            <option value="fiat">Fiat</option>
+            <option value="audi">Audi</option>
+        </select>
+        <select name="cars" size='2'>
+            <option value="volvo">Volvo</option>
+            <option value="saab" selected='selected'>Saab</option>
+            <option value="fiat">Fiat</option>
+            <option value="audi">Audi</option>
+        </select>
+        <select name="city" multiple = multiple>
+            <option value="1">beijing</option>
+            <option value="2">shanghai</option>
+            <option value="3">xian</option>
+            <option value="4">shenzhen</option>
+        </select>
+        <select name='wangzhan' id='wz'>
+            <optgroup label='河北省'>
+                <option value='1'>邯郸</option>
+                <option value='2'>石家庄</option>
+            </optgroup>
+            <optgroup label='河南省'>
+                <option value='3'>南阳</option>
+                <option value='4'>驻马店</option>
+            </optgroup>
+        </select>
+        <h3>上传文件</h3>
+        <input type='file' name='文件'>
+        <input type='submit' value='提交'>
+    </form>
+</body>
+</html>

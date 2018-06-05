@@ -1,0 +1,172 @@
+=====HTML总结=====
+1、head标签中
+    -<meta  ->编码，跳转，刷新，关键字，描述，IE兼容
+            <meta http-equiv='X-UA-Compatible' content ='IE=IE9;IE=IE8;' />
+    -title标签
+    -<link/>浏览器显示图标
+    -<style>
+    -<script>
+
+2、所有标签分为：
+    块级标签：div（白板），h系列（标题），p标签（段落和段落之间有间距）
+    行内标签：span（白板）
+
+    标签之间可以嵌套
+    标签存在的的意义，Css操作，Js操作
+    PS：chrome浏览器审查元素的使用
+
+3、标签详解
+    input系列
+        input type = 'text' - name属性，value = '张三'
+        input type = 'password' - name属性 - value = 'zhangsan'
+        input type = 'button' - value = '提交' 按钮显示
+        input type = 'submit' - value = '确定' 会将表单内容提交
+
+        input type = 'radio' - 单选框 value，checkde='checked',name属性（name相同则互斥，只能选择一个）
+        input type = 'checkbox' - 复选框 value，checkde='checked',name属性（name相同则批量湖获取数据）
+        input type = 'file' - 依赖form表单的一个属性 enctype='mulipart/form-data'
+        input type = 'reset' - 重置表单
+
+        <textarea>默认值</textarea> -name属性
+        select标签    -name属性 ,内部option value ,提交到后台,size, multiple
+
+    lable标签
+        -用来进行input标签的跳转等作用,获取光标
+        <label for ='username'>用户名：</label>
+        <input type='text' id='username' name='user'>
+
+    a标签
+        -跳转
+        -锚   href = '#某个标签的id'  标签的id是唯一的
+
+    列表
+        ul -前面显示点
+            li
+        ol -前面显示数字
+            li
+        dl
+            dt 为主名称
+            dd 为分列列表
+    img标签
+        href  图片地址
+        alt  图片显示文字
+        img{
+            border:0
+            }
+            img图片默认有一个1px的边框，当图片作为a标签跳转时要去掉，不然会有蓝色边框
+    table表格
+        thead 为表头
+            tr  分行
+                th  分列
+        tbody 为表内容
+            tr  分行
+                td  分列
+
+            colspan = '' 在行里横向合并，仅对当行有用
+            cowspan = '' 在列里纵向合并，仅对当列有用
+
+    fieldset  画出一个边框
+        legend 边框上的文字提示
+
+
+4、编写CSS样式
+    1、就是标签的style属性
+    2、写在head的style标签里面
+    2.5、也可以写在单独的CSS文件里
+        <link rel='stylesheet' herf='commons.css' />
+    3、id和class的名字必须以字母开头才可以识别，例：i2  #i3
+        -id选择器
+            #i1{
+                height:150px;
+                background-color:red
+            }
+                注：id不可以重复
+
+        -class选择器
+            .i2{
+                height:150px;
+                background-color:red
+            }
+                注：class可以重复
+
+        -标签选择器
+            div{
+                height:150px;
+                background-color:red
+            }
+                注：对某一类标签设定样式
+
+        -层级选择器（空格）
+            span div{
+                height:150px;
+                background-color:red
+            }
+                注：即在span标签的内部查找div标签，将其设为设定的样式
+
+        -组合选择器
+            p,div,#i1,.i4{
+                height:150px;
+                background-color:red
+            }
+                注：将符合上面所写的任意要求的标签设定样式
+
+        -属性选择器
+            input[name = 'haha']{
+                height:150px;
+                background-color:red
+            }
+                注：先寻找input标签，将其中包含属性name='haha'的标签设定样式
+
+        PS：优先级，标签上的style优先，编写顺序，就近原则
+
+    4、边框
+        -宽度，样式，颜色(border:4px dotted red；)
+        -border-left 选择哪一边有
+
+    5、样式
+        height: 49px;  设定块状标签高度，设定对行内标签没用
+        width: 50%;  设定块状标签宽度，可以用px设定像素数，也可以用%设定百分比
+        border: 1px solid red;  边框设定，宽度、线型、颜色
+        font-size: 20px;  设定标签内字体大小
+        text-align: center;  设定标签内文字左右居中
+        line-height: 49px;  设定标签内文字上下居中
+        font-weight: bold;  设定文字粗细
+            border线型： （1）none (没有边框，无论边框宽度设为多大)
+                        （2）dotted (点线式边框)
+                        （3）dashed (破折线式边框)
+                        （4）solid (直线式边框)
+                        （5）double (双线式边框)
+                        （6）groove (槽线式边框)
+                        （7）ridge(脊线式边框)
+                        （8）inset (内嵌效果的边框)
+                        （9）outset (突起效果的边框)
+
+    6、float
+        让块级标签也可以重叠，当宽度不大于100%时，块级标签会出现在同一行，当大于100%时，还是会出现在两行，float可以任意设定上下左右。
+
+    7、display
+        display:none  让标签消失
+        display:inline  让标签成为行内标签，具有行内标签的特性
+        display:block  让标前变成块状标签，具有块状标签的特性
+        display:inline-block  使标签具有两种特性
+                具有inline特性，默认自己有多少就占多少
+                具有block特性，可以设置宽度、高度、padding、margin
+        **********
+        行内标签：无法设置高度、宽度、padding、margin
+        块状标签：可以设置高度、宽度、padding、margin
+
+    8、padding  margin (auto 0)
+        padding  内边框
+        margin  外边框
+
+    9、自适应和改变大小
+        左右滚动条的出现
+        宽度使用百分比不是页面变形
+        页面最外层：像素的宽度=>最外层设置的绝对值，会自适应出现左右滚动条
+
+        自适应 media
+
+    10、position
+        position:fixed可以使标签悬浮在固定的位置，不会因为页面改变而看不到，就是小广告
+        top、bottom、left、right设定四周的距离
+        opacity 设定透明度 0-1 越大越不透明
