@@ -1,0 +1,71 @@
+=====HTML总结=====
+1、head标签中
+    -<meta  ->编码，跳转，刷新，关键字，描述，IE兼容
+            <meta http-equiv='X-UA-Compatible' content ='IE=IE9;IE=IE8;' />
+    -title标签
+    -<link/>浏览器显示图标
+    -<style>
+    -<script>
+
+2、所有标签分为：
+    块级标签：div（白板），h系列（标题），p标签（段落和段落之间有间距）
+    行内标签：span（白板）
+
+    标签之间可以嵌套
+    标签存在的的意义，Css操作，Js操作
+    PS：chrome浏览器审查元素的使用
+
+3、标签详解
+    input系列
+        input type = 'text' - name属性，value = '张三'
+        input type = 'password' - name属性 - value = 'zhangsan'
+        input type = 'button' - value = '提交' 按钮显示
+        input type = 'submit' - value = '确定' 会将表单内容提交
+
+        input type = 'radio' - 单选框 value，checkde='checked',name属性（name相同则互斥，只能选择一个）
+        input type = 'checkbox' - 复选框 value，checkde='checked',name属性（name相同则批量湖获取数据）
+        input type = 'file' - 依赖form表单的一个属性 enctype='mulipart/form-data'
+        input type = 'reset' - 重置表单
+
+        <textarea>默认值</textarea> -name属性
+        select标签    -name属性 ,内部option value ,提交到后台,size, multiple
+
+    lable标签
+        -用来进行input标签的跳转等作用,获取光标
+        <label for ='username'>用户名：</label>
+        <input type='text' id='username' name='user'>
+
+    a标签
+        -跳转
+        -锚   href = '#某个标签的id'  标签的id是唯一的
+
+    列表
+        ul -前面显示点
+            li
+        ol -前面显示数字
+            li
+        dl
+            dt 为主名称
+            dd 为分列列表
+    img标签
+        href  图片地址
+        alt  图片显示文字
+        img{
+            border:0
+            }
+            img图片默认有一个1px的边框，当图片作为a标签跳转时要去掉，不然会有蓝色边框
+    table表格
+        thead 为表头
+            tr  分行
+                th  分列
+        tbody 为表内容
+            tr  分行
+                td  分列
+
+            colspan = '' 在行里横向合并，仅对当行有用
+            cowspan = '' 在列里纵向合并，仅对当列有用
+
+    fieldset  画出一个边框
+        legend 边框上的文字提示
+
+

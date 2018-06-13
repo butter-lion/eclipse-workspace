@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>文档处理</title>
+</head>
+<body>
+    <input type='text' id='text'>
+    <input type='button' id='add' value='添加'>
+    <input type='button' id='remove' value='删除'>
+    <ur id='u1'>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ur>
+    <script src='jquery-3.3.1.js'></script>
+    <script>
+        //添加一条内容
+        $('#add').click(function () {
+            var t = $("#text").val();
+            var temp = document.createElement('li');
+            $(temp).text(t);
+            $("#text").val('')
+            $('#u1').append(temp);
+        });
+        //根据索引删除
+        $('#remove').click(function () {
+            var index = $("#text").val();
+            $('#u1 li').eq(index).remove()
+        });
+    </script>
+</body>
+</html>

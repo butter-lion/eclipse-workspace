@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id='i1' style='font-size: 40px; color: red; text-align: center;'>hello &nbsp; world &nbsp;hello &nbsp; world &nbsp; </div>
+    <script>
+        function f() {
+            var tag = document.getElementById('i1')
+            var content = tag.innerText
+            var f =content.charAt(0)
+            var l = content.substring(1,content.length)
+            var new_content = l + f
+            content = new_content
+            tag.innerText = content
+        }
+
+        setInterval('f()',200)
+    </script>
+</body>
+</html>

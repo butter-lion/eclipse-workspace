@@ -1,0 +1,196 @@
+=====jQuery=====
+    http://jquery.cuishifeng.cn/
+
+    模块 《==》 类库
+    DOM/BOM/JavaScript的类库
+
+
+
+
+    1、引入jQuery
+        <script src='jquery-3.3.1.js'></script>
+        <script>
+            jQuery()...
+            $()...
+        </script>
+
+    2、转换：
+        jquery对象[0] =>  DOM对象
+        DOM对象  =>  $(DOM对象)
+
+===============查找元素==============
+    DOM
+        10种左右
+        getElementId...
+
+    jQuery
+        选择器,直接找到某个或者某类标签
+            1.id
+                <div id='i1'></div>
+
+                $('#i1')
+            2.class
+                <div class='c1'></div>
+
+                $('.c1')
+            3.标签
+                <div class='c1'>
+                    <a href=''>f</a>
+                    <a href=''>f</a>
+                </div>
+                <div class='c1'>
+                    <a href=''>f</a>
+                </div>
+                <div class='c1'>
+                    <div class ='c2'></div>
+                </div>
+
+                $('a')
+            4.组合标签
+                $('a,.c2')
+
+            5、层级
+                $('#i10 a') 子子孙孙 #i10下面的所有a标签全部获取(多层）
+                $('#i10>a') 只找儿子 #i10下面一层的a标签全部获取
+
+            6、基本筛选器
+                :first
+                :last
+                :eq(index)
+
+            7、属性选择器
+                $('[aaa]')  匹配具有aaa属性的全部标签
+                $('[ccc="bbb"]')   匹配具有ccc = 'bbb'属性的全部标签
+
+                $('input[type="text"]')   匹配具有所有type='text'属性的全部input标签
+                $(':text')   匹配所有单行输入框 即type='text'属性的input标签
+
+                实例：
+                    多选，反选，全选，取消
+
+                        ($(#t1 :checkbox).prop('checked'))  获取值
+                        ($(#t1 :checkbox).prop('checked', false))  设定值
+
+                    jQuery方法内置循环： $('#t1 :checkbox').xxxx
+                        $('#t1 :checkbox').each(function (k) {
+                            //k是当前索引值
+                            //this,是DOM类型，当前循环的元素 转换$(this)
+                        }
+
+                    三元计算
+                        // var v =条件？ 真值:假值
+                        var v = $(this).prop('checked')?false:true
+                        $(this).prop('checked',v)
+            8、筛选
+                $('i1:eq(1)')
+                    全部是字符串进行筛选
+                $('i1').eq(1)
+                    对jQuery对象进行筛选
+
+                $('#i1').next()
+                    id为i1标签的下一个标签
+                    $('#i1').nextAll()
+                    $('#i1').nextUntil('#i3')
+
+                $('#i1').prev()
+                    id为i1标签的上一个标签
+                    $('#i1').prevAll()
+                    $('#i1').prevUntil('#i3')
+
+                $('#i1').parent()
+                    id为i1标签的父标签标签
+                    $('#i1').parents()
+                    $('#i1').parentsUntil  ()
+                $('#i1').children()
+                    id为i1标签的子标签集合
+                $('#i1').siblings()
+                    id为i1标签的兄弟标签，不包含自己
+                $('#i1').find('.c1')
+                    在id为i1标签的内部查找其它标签
+
+                first()
+                last()
+                hasClass(class)
+
+            9、文本操作
+                $(..).text()                //获取标签文本内容
+                $(..).text('<a>123</a>')    //设置标签文本内容
+
+                $(..).html()                //获取标签内部所有内容
+                $(..).html('<a>123</a>')    //设置表内部所有内容
+
+                $(..).val()                 //获取标签value属性的值
+                $(..).val('..')             //设置标签value属性的值
+
+            10、样式操作
+                $(..).addClass()
+                $(..).removeClass()
+                $(..).toggleClass()
+
+            11、属性操作
+                //专门用于自定义属性
+                $(..).attr('n')            //查询标签内n属性的值
+                $(..).attr('n','v')        //设定标签内n属性的值
+                $(..).removeAttr('n')      //移除标签中的n属性
+
+                //专门用于checkbox,radio
+                $(..).prop('checked')      //获取checked属性的值
+                $(..).prop('checked',true) //设置checked属性的值
+
+            12、文档处理
+                append 标签之后添加元素
+                    $('#i1').append('#i2')
+                        在#i1元素里面最后追加标签#i2
+                prepend标签之前添加元素
+                after 标签之外之后添加元素
+                    $('#i1').after('#i2')
+                        在#i1元素同级后面追加标签#i2
+                before标签之外之前添加元素
+                remove移除标签
+                    $('#i1').remove()
+                        删除标签#i1
+                empty清空标签内容
+                    $('#i1').empty()
+                        清空标签内容
+                clone克隆标签
+
+            13、CSS处理
+                $('t1').css('样式名称','样式值')
+                点赞：
+                    $('t1').append()
+                    $('t1').remove()
+                    -setInterval
+                    透明度1->0
+                    position
+                    字体大小和位置的获取
+
+            14、位置操作
+                $(window).scrollTop()
+                    浏览器窗口上下坐标
+                $(window).scrollTop(0)
+                    设置浏览器窗口上下坐标
+                scrollLeft([val])
+                offset 获取标签在html的坐标位置
+            15、jQuery绑定方式
+                $('.c').click()
+                $('.c').bind('click',functrion())
+                $('.c').unbind('click',functrion())
+                ==============
+                $('.c').delegate('a','click',functrion(){
+                    //动态绑定点击事件，用于新增按钮事件绑定，不同于上面的集中绑定方法，之后添加新元素，绑定的方法依然有效
+                })
+
+		 表单提交
+			阻止事件发生
+				return false
+			$(function(){
+				//页面框架加载完成后自动执行
+			})
+		jQuery扩展
+			$.extend $.方法
+			$.fn.extend $(..).方法
+
+			(function(){
+			var status=1;
+				//封装变量，解决扩展函数全局变量冲突的问题
+			})(jQuery)

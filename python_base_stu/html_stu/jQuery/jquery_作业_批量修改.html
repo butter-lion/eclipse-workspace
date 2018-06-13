@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>批量修改</title>
+    <style>
+        .hide{
+            display: none;
+        }
+        .header_b{
+            height: 30px;
+            margin: 10px 20px;
+        }
+        .normal{
+            margin-left: 50px;
+            padding: 0 10px;
+            background-color: #bfdaff;
+            border: 1px solid black;
+        }
+        .editor{
+            margin-left: 50px;
+            padding: 0 10px;
+            background-color: orange;
+            color: white;
+        }
+    </style>
+
+</head>
+<body>
+    <div>
+        <div>
+            <input id='all' class='header_b' type='button' value='全选'>
+            <input id='invert' class='header_b' type='button' value='反选'>
+            <input id='cancle' class='header_b' type='button' value='取消'>
+            <span id='modal' class='normal'>只读模式</span>
+        </div>
+        <table border='1'>
+            <thead>
+            <tr>
+                <th>选择</th>
+                <th>主机名</th>
+                <th>端口</th>
+                <th>状态</th>
+            </tr>
+            </thead>
+            <tbody id='tb1'>
+                <tr>
+                    <td><input type='checkbox'></td>
+                    <td><span>server1</span></td>
+                    <td><span>8000</span></td>
+                    <td><select>
+                          <option value="up">上线</option>
+                          <option value="down">下线</option>
+                        </select>
+                        <div class='state hide'></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type='checkbox'></td>
+                    <td><span>server1</span></td>
+                    <td><span>8000</span></td>
+                    <td><select>
+                          <option value="up">上线</option>
+                          <option value="down">下线</option>
+                        </select>
+                        <div class='state hide'></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type='checkbox'></td>
+                    <td><span>server1</span></td>
+                    <td><span>8000</span></td>
+                    <td><select>
+                          <option value="up">上线</option>
+                          <option value="down">下线</option>
+                        </select>
+                        <div class='state hide'></div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <script src='jquery-3.3.1.js'></script>
+    <script>
+        $('#all').click(function () {
+            var che = $('#tb1 :checkbox');
+            che.each(function () {
+                $(this).prop('checked',true)
+            })
+        });
+        $('#cancle').click(function () {
+            var che = $('#tb1 :checkbox');
+            che.each(function () {
+                $(this).prop('checked',false)
+            })
+        });
+        $('#invert').click(function () {
+            var che = $('#tb1 :checkbox');
+            che.each(function () {
+                if ($(this).prop('checked')) {
+                    $(this).prop('checked',false)
+                }else {
+                    $(this).prop('checked',true)
+                }
+            })
+        });
+        $('#modal').click(function () {
+            if ($(this).attr('class') == 'normal'){
+                //转换到编辑模式
+                $(this).text('编辑模式').removeClass('normal').addClass('editor');
+                var te = $('#tb1 span');
+                te.each(function () {
+                    // 取出span标签的内容
+                    var inner = $(this).text();
+                    var new_te = document.createElement('input');
+                    new_te = $(new_te).attr('type','text');
+                    // 生成新的input标签，并将内容补充上
+                    new_te.val(inner);
+                    // 删除旧标签，添加新标签
+                    $(this).parent().append(new_te);
+                    $(this).remove()
+                });
+                var sec = $('#tb1 .state');
+                sec.each(function () {
+                    if($(this).text() == '上线'){
+                        $(this).addClass('hide');
+                        $(this).prev().removeClass('hide').val('up')
+                    }else {
+                        $(this).addClass('hide');
+                        $(this).prev().removeClass('hide').val('down')
+                    }
+                })
+            }else{
+                $(this).text('只读模式').removeClass('editor').addClass('normal');
+                var te = $('#tb1 :text');
+                te.each(function () {
+                    var inner = $(this).val();
+                    var new_te = document.createElement('span');
+                    new_te = $(new_te).text(inner);
+                    $(this).parent().append(new_te);
+                    $(this).remove()
+                });
+                var sec = $('#tb1 select');
+                sec.each(function () {
+                    if($(this).val() == 'up'){
+                        $(this).addClass('hide');
+                        $(this).next().text('上线').removeClass('hide')
+                    }else{
+                        $(this).addClass('hide');
+                        $(this).next().text('下线').removeClass('hide')
+                    }
+                })
+            }
+        })
+    </script>
+</body>
+</html>

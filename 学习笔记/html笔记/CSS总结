@@ -1,0 +1,123 @@
+=====编写CSS样式=====
+    1、就是标签的style属性
+    2、写在head的style标签里面
+    2.5、也可以写在单独的CSS文件里
+        <link rel='stylesheet' herf='commons.css' />
+    3、id和class的名字必须以字母开头才可以识别，例：i2  #i3
+        -id选择器
+            #i1{
+                height:150px;
+                background-color:red
+            }
+                注：id不可以重复
+
+        -class选择器
+            .i2{
+                height:150px;
+                background-color:red
+            }
+                注：class可以重复
+
+        -标签选择器
+            div{
+                height:150px;
+                background-color:red
+            }
+                注：对某一类标签设定样式
+
+        -层级选择器（空格）
+            span div{
+                height:150px;
+                background-color:red
+            }
+                注：即在span标签的内部查找div标签，将其设为设定的样式
+
+        -组合选择器
+            p,div,#i1,.i4{
+                height:150px;
+                background-color:red
+            }
+                注：将符合上面所写的任意要求的标签设定样式
+
+        -属性选择器
+            input[name = 'haha']{
+                height:150px;
+                background-color:red
+            }
+                注：先寻找input标签，将其中包含属性name='haha'的标签设定样式
+
+        PS：优先级，标签上的style优先，编写顺序，就近原则
+
+    4、边框
+        -宽度，样式，颜色(border:4px dotted red；)
+        -border-left 选择哪一边有
+
+    5、样式
+        height: 49px;  设定块状标签高度，设定对行内标签没用
+        width: 50%;  设定块状标签宽度，可以用px设定像素数，也可以用%设定百分比
+        border: 1px solid red;  边框设定，宽度、线型、颜色
+        font-size: 20px;  设定标签内字体大小
+        text-align: center;  设定标签内文字左右居中
+        line-height: 49px;  设定标签内文字上下居中
+        font-weight: bold;  设定文字粗细
+            border线型： （1）none (没有边框，无论边框宽度设为多大)
+                        （2）dotted (点线式边框)
+                        （3）dashed (破折线式边框)
+                        （4）solid (直线式边框)
+                        （5）double (双线式边框)
+                        （6）groove (槽线式边框)
+                        （7）ridge(脊线式边框)
+                        （8）inset (内嵌效果的边框)
+                        （9）outset (突起效果的边框)
+
+    6、float
+        让块级标签也可以重叠，当宽度不大于100%时，块级标签会出现在同一行，当大于100%时，还是会出现在两行，float可以任意设定上下左右。
+
+    7、display
+        display:none  让标签消失
+        display:inline  让标签成为行内标签，具有行内标签的特性
+        display:block  让标前变成块状标签，具有块状标签的特性
+        display:inline-block  使标签具有两种特性
+                具有inline特性，默认自己有多少就占多少
+                具有block特性，可以设置宽度、高度、padding、margin
+        **********
+        行内标签：无法设置高度、宽度、padding、margin
+        块状标签：可以设置高度、宽度、padding、margin
+
+    8、padding  margin (auto 0)
+        padding  内边框
+        margin  外边框
+
+    9、自适应和改变大小
+        左右滚动条的出现
+        宽度使用百分比不是页面变形
+        页面最外层：像素的宽度=>最外层设置的绝对值，会自适应出现左右滚动条
+
+        自适应 media
+
+    10、position
+
+        fixed
+        生成绝对定位的元素，相对于浏览器窗口进行定位。元素的位置通过 "left", "top", "right" 以及 "bottom" 属性进行规定。
+
+        relative + absolute 可以组合形成相对定位
+
+        top、bottom、left、right设定四周的距离
+        opacity 设定透明度 0-1 越大越不透明
+        z-index 设定优先级，值越大，就在越上层
+
+    11、overflow
+        hidden:隐藏多余的部分，只显示标签大小的内容
+        auto：只显示标签大小，但是可以用滑轮看到所有内容
+
+    12、hover
+        .a1:hover{}  当鼠标放在a1标签上时，hover里面的css效果才展示出来
+
+    13、background
+        background-color: red  背景色
+        background-image：url(.../image.jpg) 默认平铺，会根据填写大小重复铺开
+            background-repeat: no-repeat  设定图片不重复平铺，不会重复出现
+            background-position-x:-500px
+            background-position-y:-600px   设定图片显示左上角坐标
+            background-position: -500px -600px
+            background:  red  url('xx/image.jpg')  -500px  -600px  no-repeat 省略写法

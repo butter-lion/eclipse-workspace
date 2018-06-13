@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>左侧菜单</title>
+    <style>
+        .pg_body{
+            width: 1000px;
+            padding:200px 100px;
+        }
+        .t_heade{
+            font-size: 50px;
+            background-color: black;
+            color: white;
+            width: 300px;
+        }
+        .t_body{
+            background-color: #4e91f2;
+            color: red;
+            width: 300px;
+            font-size: 30px;
+            margin: 10px 0;
+        }
+        .body_t{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class='pg_body'>
+        <div>
+            <div class='t_heade' onclick='f("t1")'>这里是菜单一</div>
+            <div id='t1'>
+                <div class='t_body'>内容1</div>
+                <div class='t_body'>内容1</div>
+                <div class='t_body'>内容1</div>
+            </div>
+        </div>
+        <div>
+            <div class='t_heade' onclick='f("t2")'>这里是菜单二</div>
+            <div class='body_t' id='t2'>
+                <div class='t_body'>内容2</div>
+                <div class='t_body'>内容2</div>
+                <div class='t_body'>内容2</div>
+            </div>
+        </div>
+        <div>
+            <div class='t_heade' onclick='f("t3")'>这里是菜单三</div>
+            <div class='body_t' id='t3'>
+                <div class='t_body'>内容3</div>
+                <div class='t_body'>内容3</div>
+                <div class='t_body'>内容3</div>
+            </div>
+        </div>
+        <div>
+            <div class='t_heade' onclick="f('t4')">这里是菜单四</div>
+            <div class='body_t' id='t4'>
+                <div class='t_body'>内容4</div>
+                <div class='t_body'>内容4</div>
+                <div class='t_body'>内容4</div>
+            </div>
+        </div>
+    </div>
+    <div onclick='f(t4)'>qqqq</div>
+    <script>
+        function f(nid) {
+            console.log(123)
+            var content_show = document.getElementById(nid);
+            console.log(content_show)
+            var content_list = content_show.parentElement.parentElement.children;
+            for (i=0; i<content_list.length;i++){
+                content_list[i].children[1].classList.add('body_t')
+            }
+            content_show.classList.remove('body_t')
+        }
+    </script>
+</body>
+</html>

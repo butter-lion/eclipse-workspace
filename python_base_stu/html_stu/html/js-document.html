@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>document</title>
+    <style>
+        .pot{
+            display: none;
+        }
+        .c1{
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            left: 0;
+            background-color: black;
+            opacity: 0.6;
+            z-index: 1;
+        }
+        .c2{
+            position: fixed;
+            height: 500px;
+            width: 600px;
+            top: 50%;
+            left: 50%;
+            margin: -250px -300px;
+            background-color: white;
+            z-index: 2;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <input type='text'>
+        <input type='button' value='添加' onclick='ShowWindow()'>
+    </div>
+    <div id='q1' class='c1 pot'></div>
+    <div id='q2' class='c2 pot'>
+        <input type='text'>
+        <input type='button' value='取消' onclick='CutWindow()'>
+        <input type='button' value='确定'>
+    </div>
+    <script>
+        function ShowWindow(){
+            document.getElementById('q1').classList.remove('pot')
+            document.getElementById('q2').classList.remove('pot')
+
+        }
+        function CutWindow() {
+            document.getElementById('q1').classList.add('pot')
+            document.getElementById('q2').classList.add('pot')
+
+        }
+    </script>
+</body>
+</html>

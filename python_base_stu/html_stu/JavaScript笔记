@@ -1,0 +1,279 @@
+=====编写JavaScript样式=====
+https://www.cnblogs.com/wupeiqi/articles/5602773.html
+JavaScript是一门独立的语言，浏览器具有js解释器
+
+    1、JavaScript代码存在形式
+        -head中
+                <script>
+                    //javascript代码
+                    alert(123);
+                </script>
+
+                <script type='text/javascript>
+                    //javascript代码
+                    alert(123);
+                </script>
+
+        -文件中
+                <script src='js文件路径'></script>
+
+        PS:  JS代码需要放置在<body>标签内部的最下方
+
+    2、注释
+        单行  //
+        多行注释  /*    */
+
+    3、变量
+
+        Python：
+            name = 'laowang'
+
+        JavaScript:
+            name = 'laozhang'  #全局变量
+
+            var name = 'xiaoli' #局部变量
+                就算是在定义的函数中 也必须var name 才是局部变量
+
+                <script type="text/javascript">
+
+                    // 全局变量
+                    name = 'seven';
+
+                    function func(){
+                        // 局部变量
+                        var age = 18;
+
+                        // 全局变量
+                        gender = "男"
+                    }
+                </script>
+
+    3、基本数据类型
+
+        原始类型
+            数字
+                a = 18;
+
+            字符串
+                a = 'laozhang'
+                a.lenght
+                     返回 4
+                a.chartAt(n)
+                     返回 字符串第n个的字母
+                a.substring(n,m)
+                     返回 字符串n到m之间的字符串
+
+            布尔值
+                python:
+                    True
+                    False
+                JS:
+                    true
+                    false
+
+        对象类型
+            列表(数组)
+                a = [11,22,33,44]
+
+            “字典”
+                a = {'a1':'qqq','a2':'www'}
+
+    4、for 循环
+        1、循环式，循环的元素是索引，不是元素本身
+            a = [11,22,33,44]
+            for (var item in a){
+                consolee.log(a[item]);
+            }
+
+            a = {'a1':'qqq','a2':'www'}
+            for (var item in a){
+                consolee.log(a[item]);
+            }
+                item 是a的key,要获取value的时候用a[item]
+
+        2、
+            for(var i=0;i<10;i++){
+
+            }
+
+            a = [11,22,33,44]
+            for(var i=0;i<a.length;i++){
+
+            }
+
+            不支持字典的循环
+
+    5、条件语句
+        if(条件){
+
+        }else if(条件){
+
+
+        }else if(条件){
+
+        }else{
+
+        }
+
+        1 == '1'
+            true;   ==只要值相等就是true，不管类型
+
+        1 === '1'
+            false;   ===必须类型，值全部相等才是true
+
+        && 就是and
+        || 就是or
+
+        switch(){
+        case ddd:
+            console.log(ddd);
+            break;
+        case eee:
+            console.log(eee);
+            break;
+        default:
+            语句;
+        }
+    6、函数
+        普通函数
+                function func(arg){
+
+                }
+
+        匿名函数
+                没有名字的函数叫匿名函数
+                setIntervar(function(){
+                        函数体;
+                })
+       自执行函数:args形参，1为实参
+                (function(args){
+                        console.log(args);
+                )(1)
+
+    7、定时器
+        setInterval('要执行函数',时间ms)
+            setInterval('alert(123)',5000) 每5s出现一次弹窗
+
+    8、序列化：
+        JSON.stringify(li) 将对象转化成为字符串
+
+        JSON.parse(s) 将字符串转成对象类型
+
+    9、转义
+        即传进去的是没有解析的字符串
+            Python
+                eval(表达式)
+                exec(执行代码) 没有返回值
+            javaScript:
+                    eval 是Python的集合，即：支持表达式和执行代码两块
+
+    10、时间模块
+                var d = new Date() /* 获取当前时间对象 */
+                d.setMinutes()+4 /* 设置时间*/
+                d.getetMinutes() /* 获取时间*/
+
+    11、作用域
+        1、其他语言以{代码块}作为作用域
+        2、Python里边的作用域以{函数}为单位
+        3、JavaScript的作用域跟Python一样，以函数为单位
+
+            变量向上查找
+            xo=1;/*标记1*/
+            function func(){
+                var xo=2;/*标记2*/
+                function inner(){
+                    var xo = 3;/*标记3*/
+                    console.log(xo)
+                }
+            }
+            如果标记3的xo有定义，则输出3，如果标记3没定义，标记2有定义，则输出2，同理，如果都没有定义则报错。
+
+    12、 JavaScript面向对象
+            function foo(name){
+                this.name = name
+                this.func(){
+                    pass
+                }
+            }
+            var obj=new foo('Guo');
+            a、this关键字代指对象
+            b、new创建一个对象
+
+            JavaScript 函数和类都用function定义
+                类的生成要用new
+                    a = new function()
+                    a.name    属性
+                    a.func()  方法
+
+=====DOM=====
+    1、找到标签
+        直接获取标签
+            document.getElementById('i1')
+                获取id为'i1'的单个标签
+            document.getElementsByTagName('div')
+                获取div标签的多个元素（列表）
+            document.getElementsByClassName('c1')
+                获取class为'c1'标签的多个元素（列表）
+            document.getElementsByName('n1')
+                获取name为'n1'标签的多个元素（列表）
+
+        间接获取
+            parentElement           // 父节点标签元素
+            children                // 所有子标签
+            firstElementChild       // 第一个子标签元素
+            lastElementChild        // 最后一个子标签元素
+            nextElementtSibling     // 下一个兄弟标签元素
+            previousElementSibling  // 上一个兄弟标签元素
+
+    2、操作标签
+        a、innerText
+
+            获取标签中的文本内容
+            标签.innerText
+
+            对标签内部文本重新赋值
+            标签.innerText = ' '
+
+        b、checkbox
+            checked
+            check标签是否选中
+
+        c、className
+            tag.className => 直接整体操作
+            tag.classList.add('样式名')  添加指定样式
+            tag.classList.remove('样式名'） 删除指定样式
+
+        d、事件
+            onclick 点击
+            onblur 光标移开
+            onfocus 光标插进去
+            onmouseover
+            onmouseout等等
+            绑定事件两种方式
+                a.直接标签绑定
+                b.先获取Dom对象，然后进行绑定
+                document.getElementById('xx').onclick
+                document.getElementById('xx').onfocus
+            this 当前触发事件的标签
+
+                a.事件的第一种绑定方式
+                <input type="button" onclick="clickOn(this)">
+                function clickOn(self){
+                    //self 当前点击的标签
+                }
+
+                b.事件的第二种绑定方式
+                <input id="i1" type=button>
+                document.getElementById('i1').onclick=function(){
+                    //this代指当前点击的标签
+                }
+
+                c.事件的第三种绑定方式
+                var mydiv=document.getElementById('form1')
+                    mydiv.addEventListener('click',function(){
+                    console.log('aa')
+                    },false)
+                    #false:冒泡模型  从最底层开始相应，逐渐向上
+			        #true:捕捉模型，默认不写就是冒泡模型   从最上层开始相应，逐渐往下
+
+

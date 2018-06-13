@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>多选反选</title>
+</head>
+<body style='font-size: 30px;'>
+
+<input type='button' onclick='checkAll();' value='全选'>
+<input type='button' onclick='reversAll();' value='反选'>
+<input type='button' onclick='cancleAll();' value='取消'>
+    <table border='1'>
+        <thead>
+            <tr>
+                <th>选项</th>
+                <th>IP</th>
+                <th>PORT</th>
+            </tr>
+        </thead>
+        <tbody id='t1'>
+            <tr>
+                <td><input type='checkbox'></td>
+                <td>1.1.1.1</td>
+                <td>8000</td>
+            </tr>
+            <tr>
+                <td><input type='checkbox'></td>
+                <td>2.1.1.1</td>
+                <td>8000</td>
+            </tr>
+            <tr>
+                <td><input type='checkbox'></td>
+                <td>3.1.1.1</td>
+                <td>8000</td>
+            </tr>
+            <tr>
+                <td><input type='checkbox'></td>
+                <td>3.1.1.1</td>
+                <td>8000</td>
+            </tr>
+            <tr>
+                <td><input type='checkbox'></td>
+                <td>3.1.1.1</td>
+                <td>8000</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script src='jquery-3.3.1.js'></script>
+    <script>
+        function checkAll() {
+            $('#t1 :checkbox').prop('checked',true);
+        }
+        function cancleAll() {
+            $('#t1 :checkbox').prop('checked',false);
+        }
+        function reversAll() {
+            $('#t1 :checkbox').each(function (k) {
+                //this 指代当前循环的每一个元素
+                //反选
+                console.log(k) ;//this 是DOM对象  $(this)是jquery对象
+                /* DOM的方法去实现反选
+                if(this.checked==true){
+                    this.checked = false;
+                }
+                else{
+                    this.checked = true;
+                } */
+
+                /*
+                if ($(this).prop('checked')){
+                    $(this).prop('checked',false);
+                }else {
+                    $(this).prop('checked',true);
+                }*/
+
+                // var v =条件？ 真值:假值
+                var v = $(this).prop('checked')?false:true
+                $(this).prop('checked',v)
+            })
+        }
+
+    </script>
+</body>
+</html>

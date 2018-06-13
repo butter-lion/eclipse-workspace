@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>注册</title>
+    <style>
+        .pg_header{
+            position: fixed;
+            top: 0;
+            right: 0;
+            left: 0;
+            padding: 0 305px;
+            height: 48px;
+            background-color: #9ab7d9;
+            line-height: 48px;
+        }
+
+        .header_a1{
+            display: inline-block;
+            font-size: 15px;
+            color: darkred;
+            padding: 0 20px;
+            float: left;
+            text-decoration: none;
+        }
+        .header_a2{
+            display: inline-block;
+            font-size: 15px;
+            color: darkred;
+            padding: 0 20px;
+            float: right;
+            text-decoration: none;
+        }
+        .pg_header a:hover{
+            background-color: #4e91f2;
+        }
+        .pg_body{
+            position: relative;
+            margin:0 300px;
+            height: 700px;
+            width: 1300px;
+            border: 1px solid black
+        }
+        #zhuce{
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            height: 40px;
+            width: 150px;
+            background-color: #1AC567;
+            font-size: 20px;
+            color: white;
+            line-height: 40px;
+            text-align: center;
+        }
+        .body_d2{
+            padding: 30px 0px;
+            margin: 50px;
+            background-color: #c6d7ff;
+            float: left;
+            width: 650px;
+            height: 550px
+        }
+        .body_d2_text{
+            float: left;
+            width: 150px;
+            height: 50px;
+            text-align: right;
+            line-height:50px;
+            padding: 0 10px;
+            margin: 10px 0;
+        }
+        .body_d2_input{
+            position: relative;
+            float: left;
+            width: 400px;
+            height: 50px;
+            text-align: left;
+            line-height:50px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class='pg_header' >
+        <div style='width: 1300px'>
+            <a href='http://www.baidu.com' class='header_a1'>*收藏本站</a>
+            <a href='http://www.baidu.com' class='header_a2'>客户服务</a>
+            <a href='http://www.baidu.com' class='header_a2'>VIP俱乐部</a>
+            <a href='http://www.baidu.com' class='header_a2'>我的订单</a>
+            <a href='http://www.baidu.com' class='header_a2'>免费注册</a>
+            <a href='http://www.baidu.com' class='header_a2'>登录</a>
+        </div>
+    </div>
+    <div style='margin:0 300px;margin-top:50px;height: 150px;width: 1300px'>
+        <img src='image/123.gif' alt='nihao' style='height: 150px;width: 150px'>
+    </div>
+    <div class='pg_body'>
+        <div class='body_d2'>
+            <h1 style='margin-left: 100px;margin-top: -30px;font-size: 40px'>注册新用户</h1>
+            <div class='body_d2_text'>
+                <span style='color: red;font-size: 20px'>*</span>
+                 <span style='font-size: 20px'>用户名：</span>
+            </div>
+            <div class='body_d2_input'>
+                <input type='text' style='font-size: 20px;height: 40px;width: 340px;padding-right: 60px;'>
+                <img src='image/i_name.jpg' alt='name' style='position: absolute; right: 10px;top: 10px; height: 30px;width: 30px;'>
+            </div>
+            <div class='body_d2_text'>
+                <span style='color: red;font-size: 20px'>*</span>
+                 <span style='font-size: 20px'>电话：</span>
+            </div>
+            <div class='body_d2_input'>
+                <input type='text' style='font-size: 20px;height: 40px;width: 340px;padding-right: 60px;'>
+                <img src='image/i_pwd.jpg' alt='pwd' style='position: absolute; right: 10px;top: 10px; height: 30px;width: 30px;'>
+            </div>
+            <div class='body_d2_text'>
+                <span style='color: red;font-size: 20px'>*</span>
+                 <span style='font-size: 20px'>密码：</span>
+            </div>
+            <div class='body_d2_input'>
+                <input type='text' style='font-size: 20px;height: 40px;width: 340px;padding-right: 60px;'>
+            </div>
+            <div class='body_d2_text'>
+                <span style='color: red;font-size: 20px'>*</span>
+                 <span style='font-size: 20px'>确认密码：</span>
+            </div>
+            <div class='body_d2_input'>
+                <input type='text' style='font-size: 20px;height: 40px;width: 340px;padding-right: 60px;'>
+            </div>
+            <div class='body_d2_text'>
+                <span style='color: red;font-size: 20px'>*</span>
+                 <span style='font-size: 20px'>验证码：</span>
+            </div>
+            <div class='body_d2_input' style='width: 200px'>
+                <input type='text' style='font-size: 20px;height: 40px;width: 100px;padding-right: 60px; maxlength:4'>
+            </div>
+            <div class='body_d2_input' style='width: 200px;'>
+                <img src='image/验证码.jpg' alt='验证码' style='margin-top: -10px;height: 70px;width: 150px;'>
+            </div>
+            <div class='body_d2_text' style='height: 150px;'></div>
+            <div class='body_d2_input' style='font-size: 20px'>
+                <input type='checkbox' style='zoom: 1.8;'>自动登陆
+                <a href='http://www.baidu.com'  style='text-decoration: none;font-size: 20px;height: 50px;line-height: 50px;margin-left: 20px'>忘记密码</a>
+            </div>
+            <div class='body_d2_input'>
+                <input type='button' style='height: 50px;width: 400px;background-color: red;color: white;font-size: 20px' value='登    陆'>
+            </div>
+
+        </div>
+        <div class='body_d2' style='width: 400px;border-left: 1px dashed darkgray;background-color: white'>
+            <div style='float:left;font-size: 20px;margin: 0px 30px'>我已经有账号，现在就
+            </div>
+            <a href='登录.html' style='font-size: 20px;text-decoration: none ;margin-left: -20px;'>登录</a>
+            <img src='image/i_phone.jpg' alt='phone'>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表单</title>
+    <style>
+        .hide{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <form action='http://baidu.com'>
+            <div>
+                <input type='text'>
+                <span class='hide' style='color: red'>必填</span>
+            </div>
+            <div>
+                <input type='text'>
+                <span class='hide' style='color: red'>必填</span>
+            </div>
+            <div>
+                <input type='text'>
+                <span class='hide' style='color: red'>必填</span>
+            </div>
+            <div>
+                <input type='text'>
+                <span class='hide' style='color: red'>必填</span>
+            </div>
+            <div><input type='submit' onclick='return refer()'></div>
+        </form>
+    </div>
+    <script src='jquery-3.3.1.js'></script>
+    <script>
+        function refer() {
+            var tds = $(':text');
+            var ret = true;
+            console.log(tds);
+            tds.each(function () {
+                if ($(this).val() == '') {
+                    $(this).next().removeClass('hide')
+                    ret = false
+                }else {
+                    $(this).next().addClass('hide')
+                }
+            });
+            return ret;
+        }
+    </script>
+</body>
+</html>
