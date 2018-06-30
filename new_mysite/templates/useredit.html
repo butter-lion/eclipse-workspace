@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My State</title>
+    <style>
+        body{
+            margin: 0;
+        }
+        .pg_header{
+            height: 48px;
+            position: fixed;
+            background-color: red;
+            left: 0;
+            right: 0;
+            top: 0;
+
+        }
+        .pg_body{
+            margin-top: 50px;
+        }
+        .pg_left{
+            float: left;
+            width: 200px;
+            height: 500px;
+            background-color: #1AC567;
+        }
+        .pg_right{
+            float: left;
+            width: 500px;
+        }
+    </style>
+</head>
+<body>
+    <div class='pg_header'>
+        我啦啦啦啦啦啦！ 哈哈哈哈哈哈哈哈
+    </div>
+    <div class='pg_body'>
+        <div class='pg_left'>
+            <p><a href='/cmdb/state'>用户列表</a></p>
+            <p><a href='/cmdb/group'>用户组管理</a></p>
+        </div>
+        <div class='pg_right'>
+            <h3>修改用户详细信息</h3>
+            <form action='' method='post'>
+                <p style='display: none;'>   id：<input type="text" value='{{ obj.id }}' name='ud'></p>
+                <p>用户名：<input type="text" value='{{ obj.username }}' name='un'></p>
+                <p>&nbsp;&nbsp;密码：<input type="text" value='{{ obj.password }}' name='up'></p>
+                <p> email：<input type="text" value='{{ obj.email }}' name='em'></p>
+                <p>
+                    <select name='ug' id='s1' style='height: 30px;width: 100px;margin-left: 60px'>
+                    {% for g in group %}
+                        {% if g.uid == obj.usergroup_id %}
+                            <option value='{{ g.uid }}' selected='selected'>{{ g.classfiy }}</option>
+                        {% else %}
+                            <option value='{{ g.uid }}'>{{ g.classfiy }}</option>
+                        {% endif %}
+                    {% endfor %}
+                </select>
+                </p>
+                <p><input type='submit' value='提交'></p>
+                <p><a href='/cmdb/state'>返回</a></p>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

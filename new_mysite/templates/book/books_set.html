@@ -1,0 +1,72 @@
+{% extends 'book/book_base.html' %}
+
+{% block title %}Books_Add{% endblock %}
+
+{% block style %}
+    <style>
+        .book_add{
+            font-size: 20px;
+            margin-top: 30px;
+
+        }
+        .form_line{
+            margin: 10px 5px;
+        }
+        .form_head{
+            float: left;
+            width: 100px;
+            text-align: right;
+        }
+        #au1,#pu1,#bt1{
+            width: 248px;
+        }
+        #pu1{
+            height: 40px;
+        }
+    </style>
+{% endblock %}
+
+
+{% block table %}
+    <div class='book_add'>
+        <form action='' method='post'>
+            <div class='form_line'>
+                <div class='form_head'>书名：</div>
+                <input type='text' name='book_title' value='{{ book_obj.title }}'>
+            </div>
+            <div class='form_line'>
+                <div class='form_head'>作者：</div>
+                <select name='authors' id='au1' multiple>
+                    {% for author in authors_list %}
+                        {% if author.id in au_list %}
+                            <option value='{{ author.id }}' selected='selected'> {{ author.first_name }}· {{ author.last_name }}</option>
+                        {% else %}
+                            <option value='{{ author.id }}'> {{ author.first_name }}· {{ author.last_name }}</option>
+                        {% endif %}
+                    {% endfor %}
+
+                </select>
+            </div>
+            <div class='form_line'>
+                <div class='form_head'>出版社：</div>
+                <select name='publisher' id='pu1'>
+                    {% for publisher in publishers_list %}
+                        {% if publisher.id == book_obj.publisher.id %}
+                        <option value='{{ publisher.id }}' selected='selected'> {{ publisher.name }}</option>
+                        {% else %}
+                        <option value='{{ publisher.id }}' > {{ publisher.name }}</option>
+                        {% endif %}
+                    {% endfor %}
+                </select>
+            </div>
+            <div class='form_line'>
+                <div class='form_head'>出版时间：</div>
+                <input type='date' name='book_time' id='bt1' value='{{ book_date }}'>
+            </div>
+            <div class='form_line'>
+                <div class='form_head'>&nbsp;</div>
+                <input type='submit' value='提交'>
+            </div>
+        </form>
+    </div>
+{% endblock %}

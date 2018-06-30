@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>login</title>
+    <link rel='stylesheet' href='/static/commons.css'>
+    <style>
+        label{
+            text-align: right;
+            display: inline-block;
+            width: 80px;
+        }
+    </style>
+</head>
+<body>
+    <form action='/login/' method='post'>
+        <p>
+            <label for='username'>用户名:</label>
+            <input type='text' name='user' id='username'>
+        </p>
+        <p>
+            <label for='pssword'>密码：</label>
+            <input type='password' name='pwd' id='password'>
+        </p>
+        <p>
+            <input style='margin-left: 86px' type='submit' value='提交'>
+            <span style='color: red;'>{{ error_msg }}</span>
+        </p>
+    </form>
+    <script src='/static/jquery-3.3.1.js'></script>
+</body>
+</html>

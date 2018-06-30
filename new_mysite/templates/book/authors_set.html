@@ -1,0 +1,45 @@
+{% extends 'book/book_base.html' %}
+
+{% block title %}Books_Add{% endblock %}
+
+{% block style %}
+    <style>
+        .author_add{
+            font-size: 20px;
+            margin-top: 30px;
+
+        }
+        .form_line{
+            margin: 10px 5px;
+        }
+        .form_head{
+            float: left;
+            width: 100px;
+            text-align: right;
+        }
+    </style>
+{% endblock %}
+
+
+{% block table %}
+    <div class='author_add'>
+        <form action='' method='post'>
+            <div class='form_line'>
+                <div class='form_head'>first_name：</div>
+                <input type='text' name='author_fn' value='{{ au_obj.first_name }}'>
+            </div>
+            <div class='form_line'>
+                <div class='form_head'>last_name：</div>
+                <input type='text' name='author_ln' value='{{ au_obj.last_name }}'>
+            </div>
+            <div class='form_line'>
+                <div class='form_head'>e-mail：</div>
+                <input type='email' name='author_email' value='{{ au_obj.email }}'>
+            </div>
+            <div class='form_line'>
+                <div class='form_head'>&nbsp;</div>
+                <input type='submit' value='提交'>
+            </div>
+        </form>
+    </div>
+{% endblock %}

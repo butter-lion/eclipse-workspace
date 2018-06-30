@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My State</title>
+    <style>
+        .hide{
+            display: none;
+        }
+        body{
+            margin: 0;
+        }
+        .pg_header{
+            height: 48px;
+            position: fixed;
+            background-color: red;
+            left: 0;
+            right: 0;
+            top: 0;
+
+        }
+        .pg_body{
+            margin-top: 50px;
+        }
+        .pg_left{
+            float: left;
+            width: 200px;
+            height: 500px;
+            background-color: #1AC567;
+        }
+        .pg_right{
+            float: left;
+            width: 500px;
+        }
+        .shade{
+            position: fixed;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            background-color: black;
+            opacity: 0.6;
+            z-index: 10;
+        }
+        .add_model{
+             position: fixed;
+            left: 50%;
+            top: 150px;
+            background-color: white;
+            z-index: 11;
+            height: 300px;
+            width: 400px;
+            margin-left: -200px;
+        }
+    </style>
+</head>
+<body>
+    <div class='pg_header'>
+        我啦啦啦啦啦啦！ 哈哈哈哈哈哈哈哈
+    </div>
+    <div class='pg_body'>
+        <div class='pg_left'>
+            <p><a href='/cmdb/state'>用户列表</a></p>
+            <p><a href='/cmdb/group'>用户组管理</a></p>
+        </div>
+        <div class='pg_right'>
+
+            <p style='margin-left: 30px;font-size: 20px'>
+                <h3 style='margin-left: 30px;'>用户列表</h3>
+            </p>
+            <table border='1'>
+                <thead>
+                    <th>序号</th>
+                    <th>名字</th>
+                    <th>密码</th>
+                    <th>邮箱</th>
+                    <th>分组</th>
+                </thead>
+                <tbody>
+                    {% for user in obj %}
+                        <tr>
+                            <td>{{ forloop.counter }}</td>
+                            <td>{{ user.username }}</td>
+                            <td>{{ user.password }}</td>
+                            <td>{{ user.email }}</td>
+                            <td>{{ user.usergroup.classfiy }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <input id='t1' type='button' value='添加' style='height: 40px;width: 100px;'>
+        </div>
+    </div>
+    <div class='shade hide'></div>
+    <div class='add_model hide'>
+        <form action='' method='post'>
+            <p>用户名：<input type='text' name='un' id='name'></p>
+            <p>密码：<input type='text' name='up' id='pwd'></p>
+            <p>邮箱：<input type='text' name='em' id='mail'></p>
+            <p>用户组：<select name='ug'id ='g_id'>
+                {% for g in gbj %}
+                    <option value='{{ g.uid }}'>{{ g.classfiy }}</option>
+                {% endfor %}
+            </select></p>
+        <p><input type='submit' value='提交'><a id='ajax_submit'>Ajax提交</a></p>
+        <p><input type='button' value='返回' name='back'></p>
+        </form>
+    </div>
+    <script src='/static/jquery-3.3.1.js'></script>
+    <script>
+        $('#t1').click(function () {
+            $('.shade , .add_model').removeClass('hide')
+        })
+        $('.add_model [name="back"]').click(function () {
+            $('.shade , .add_model').addClass('hide')
+        })
+        $('#ajax_submit').click(function () {
+            $.ajax({
+                url:'/cmdb/test_ajax',
+                type:'GET',
+                data:{'name':$('#name').val(),'pwd':$('#pwd').val(),'mail':$('#mail').val(),'g_id':$('#g_id').val()},
+                success:function (data) {
+                    alert(data)
+
+                }
+            })
+        })
+    </script>
+</body>
+</html>

@@ -18,7 +18,7 @@ Session = Session_class()  # 生成session实例
 #增加新数据
 # user_obj = orm_create.User(name="xiaohua", password="xiaohua123")
 # Session.add(user_obj)
-# Session.commit()
+# Session.com7887mit()
 
 #查询数据
 # my_user = Session.query(orm_create.student).filter_by(name = 'chenronghua').first()

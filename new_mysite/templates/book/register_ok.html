@@ -1,0 +1,20 @@
+{% extends 'book/book_base.html' %}
+
+{% block title %}Login{% endblock %}
+
+{% block style %}
+    <style>
+        .login_in{
+            margin: 100px  120px;
+            height: 40px;
+            font-size: 20px;
+        }
+
+    </style>
+
+{% endblock %}
+{% block pages %}
+    <div class='login_in'>
+        注册成功，去 <a href='/book/login/'>登录</a>
+    </div>
+{% endblock %}

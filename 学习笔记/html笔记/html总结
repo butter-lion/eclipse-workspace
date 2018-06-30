@@ -38,6 +38,7 @@
     a标签
         -跳转
         -锚   href = '#某个标签的id'  标签的id是唯一的
+        -去除下划线 a{text-decoration:none}
 
     列表
         ul -前面显示点

@@ -1,0 +1,56 @@
+{% extends 'book/book_base.html' %}
+
+{% block title %}Books_Add{% endblock %}
+
+{% block style %}
+    <style>
+        .hide{
+            display: none;
+        }
+        .publishers_add{
+            font-size: 20px;
+            margin-top: 30px;
+
+        }
+        .form_line{
+            margin: 10px 5px;
+        }
+        .form_head{
+            float: left;
+            width: 100px;
+            text-align: right;
+        }
+    </style>
+{% endblock %}
+
+
+{% block table %}
+    <div class='publishers_add'>
+        <form action='' method='post'>
+            <div class='form_line'>
+                <div class='form_head'>name：</div>
+                <input type='text' name='pub_name' value='{{ pub_obj.name }}'>
+            </div>
+            <div class='form_line'>
+                <div class='form_head'>country：</div>
+                <input type='text' name='pub_country' value='{{ pub_obj.country }}'>
+            </div>
+            <div class='form_line'>
+                <div class='form_head'>city：</div>
+                <input type='text' name='pub_city' value='{{ pub_obj.city }}'>
+            </div>
+            <div class='form_line'>
+                <div class='form_head'>address：</div>
+                <input type='text' name='pub_address' value='{{ pub_obj.address }}'>
+            </div>
+            <div class='form_line'>
+                <div class='form_head'>website：</div>
+                <input type='text' name='pub_website' value='{{ pub_obj.website }}'>
+            </div>
+            <div class='form_line'>
+                <div class='form_head'>&nbsp;</div>
+                <input type='submit' value='提交'>
+            </div>
+        </form>
+    </div>
+{% endblock %}

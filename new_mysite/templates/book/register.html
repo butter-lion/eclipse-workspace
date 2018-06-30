@@ -1,0 +1,32 @@
+{% extends 'book/book_base.html' %}
+
+{% block title %}Login{% endblock %}
+
+{% block style %}
+    <style>
+        .login_in{
+            margin: 50px  100px;
+            height: 40px;
+            font-size: 20px;
+        }
+        .login_button{
+            margin: 50px  160px;
+            font-size: 15px;
+        }
+    </style>
+
+{% endblock %}
+{% block pages %}
+    <div>
+        <form action='' method='post'>
+            <div class='login_in'>账号：<input type='text' name='username'></div>
+            <div class='login_in'>密码：<input type='password' name='pwd'></div>
+            <div class='login_in'>邮箱：<input type='email' name='email'></div>
+            <div class='login_in'>电话：<input type='text' name='phone'></div>
+            <div class='login_in login_button'>
+                <input type='submit' style='margin-right: 50px;font-size: 20px' value='注册'>
+                我已有账号，去<a href='/book/login/'>登录</a>
+            </div>
+        </form>
+    </div>
+{% endblock %}

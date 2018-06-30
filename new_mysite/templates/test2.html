@@ -1,0 +1,27 @@
+{% load ooxx %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .page_list .page{
+            margin: 5px;padding: 5px;
+            background-color: darkturquoise;
+        }
+        .page_list .active{
+            background-color: brown;
+        }
+    </style>
+</head>
+<body>
+    {% for item in data %}
+        {% include 'test2_page.html' %}
+    {% endfor %}
+    <p></p>
+    <div class='page_list'> {{ page_str|safe }}
+
+    </div>
+
+</body>
+</html>

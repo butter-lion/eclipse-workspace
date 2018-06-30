@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My State</title>
+    <style>
+        body{
+            margin: 0;
+        }
+        .pg_header{
+            height: 48px;
+            position: fixed;
+            background-color: red;
+            left: 0;
+            right: 0;
+            top: 0;
+
+        }
+        .pg_body{
+            margin-top: 50px;
+        }
+        .pg_left{
+            float: left;
+            width: 200px;
+            height: 500px;
+            background-color: #1AC567;
+        }
+        .pg_right{
+            float: left;
+            width: 500px;
+        }
+    </style>
+</head>
+<body>
+    <div class='pg_header'>
+        我啦啦啦啦啦啦！ 哈哈哈哈哈哈哈哈
+    </div>
+    <div class='pg_body'>
+        <div class='pg_left'>
+            <p><a href='/cmdb/state'>用户列表</a></p>
+            <p><a href='/cmdb/group'>用户组管理</a></p>
+        </div>
+        <div class='pg_right'>
+            <h3>用户详细信息</h3>
+            <ul>
+                <li style='display: none;'>{{ obj.id }}</li>
+                <li>用户名：{{ obj.username }}</li>
+                <li>密码：{{ obj.password }}</li>
+                <li>邮箱：{{ obj.email }}</li>
+                <li>分组：{{ obj.usergroup.classfiy }}</li>
+                <li><a href='/cmdb/state'>返回</a></li>
+            </ul>
+        </div>
+    </div>
+
+</body>
+</html>

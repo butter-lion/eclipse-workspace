@@ -1,0 +1,38 @@
+========== Django ==========
+
+创建工程   MTV模式
+    django-admin startproject 【项目名称】
+
+启动服务
+    在Django工程根目录下，包含manage.py文件
+    python manage.py runserver 127.0.0.1：8000 不输入默认(127.0.0.1:8000)
+
+文件结构
+    -mysite         #对整个程序进行配置
+        -init
+        -setting    #配置文件
+        -url        #URL对应关系
+        -wsgi       #遵循WSGI规范的socket服务
+    -manage.py      #管理Django出程序：
+                        -python manage.py
+                        -python manage.py startapp XX
+                        -python manage.py makemigrations
+                        -python manage.py migrate
+
+
+创建app
+    python manage.py startapp XXX
+
+    app目录结构：
+        -migrations     数据库修改表结构记录存档
+        -admin          Django为我们提供的后台管理
+        -apps           配置当前app
+        -models         ORM，写指定的类  通过命令可以创建数据库结构
+        -test           单元测试
+        -views          业务逻辑代码
+
+    1、配置模板的路径
+        setting.py > TEMPLATES > 'DIRS'
+    2、配置静态文件的目录
+        setting.py > 添加  STATICFILES_DIRS=(os.path.join(BASE_DIR,'static'),)
+

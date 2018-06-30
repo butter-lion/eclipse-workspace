@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>login</title>
+    <link rel='stylesheet' href='/static/commons.css'>
+    <style>
+        label{
+            text-align: right;
+            display: inline-block;
+            width: 80px;
+        }
+    </style>
+</head>
+<body>
+    <form action='/userlist/' method='post'>
+        <p>
+            <label for='username'>用户名:</label>
+            <input type='text' name='username' id='username'>
+        </p>
+        <p>
+            <label for='email'>邮箱：</label>
+            <input type='text' name='email' id='email'>
+        </p>
+        <p>
+            <label for='gender'>邮箱：</label>
+            <input type='text' name='gender' id='gender'>
+        </p>
+        <p>
+            <input style='margin-left: 86px' type='submit' value='提交'>
+            <span style='color: red;'>{{ error_msg }}</span>
+        </p>
+
+    <table>
+        {% for item in userlist %}
+        <tr>
+            <td>{{ item.username }}</td>
+            <td>{{ item.email }}</td>
+            <td>{{ item.gender }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    </form>
+    <script src='/static/jquery-3.3.1.js'></script>

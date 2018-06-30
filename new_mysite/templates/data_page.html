@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Data_Page</title>
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="/static/bootstrap-3.3.7-dist/css/bootstrap.css">
+
+    <!-- 可选的 Bootstrap 主题文件（一般不用引入） -->
+    <link rel="stylesheet" href="/static/bootstrap-3.3.7-dist/css/bootstrap-theme.css">
+
+    <style>
+        .pg_head{
+            position: fixed;
+            width: 100%;
+            top: 0;
+        }
+        .pg_body{
+            margin-top: 60px;
+            width: 1200px;
+        }
+        .body_left{
+            float: left;
+            width: 300px;
+            height: 600px;
+            margin-right: 100px;
+
+        }
+        .body_right{
+            float: left;
+            width: 800px;
+        }
+        #t1{
+            border: 1px royalblue;
+            font-size: 20px;
+            text-align: center;
+        }
+        #t1 tr{
+            height: 40px;
+        }
+        #t1 td{
+            width: 150px;
+        }
+    </style>
+</head>
+<body>
+    <div class='pg_head'>
+        <nav class="navbar navbar-default">
+          <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="#">My Site</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
+                <li><a href="#">Link</a></li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Another action</a></li>
+                    <li><a href="#">Something else here</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#">Separated link</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#">One more separated link</a></li>
+                  </ul>
+                </li>
+              </ul>
+              <form class="navbar-form navbar-left">
+                <div class="form-group">
+                  <input type="text" class="form-control" placeholder="Search">
+                </div>
+                <button type="submit" class="btn btn-default">Submit</button>
+              </form>
+              <ul class="nav navbar-nav navbar-right">
+                <li><a href="#">Link</a></li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Another action</a></li>
+                    <li><a href="#">Something else here</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#">Separated link</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div><!-- /.navbar-collapse -->
+          </div><!-- /.container-fluid -->
+        </nav>
+    </div>
+
+    <div class='pg_body'>
+        <div class = 'body_left'>
+
+            <div class="panel-group" id="accordion">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion"
+                               href="#collapseOne">
+                                点击我进行展开，再次点击我进行折叠。第 1 部分
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapseOne" class="panel-collapse collapse in">
+                        <div class="panel-body">
+                            Nihil anim keffiyeh helvetica, craft beer labore wes anderson
+                            cred nesciunt sapiente ea proident. Ad vegan excepteur butcher
+                            vice lomo.
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion"
+                               href="#collapseTwo">
+                                点击我进行展开，再次点击我进行折叠。第 2 部分
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapseTwo" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            Nihil anim keffiyeh helvetica, craft beer labore wes anderson
+                            cred nesciunt sapiente ea proident. Ad vegan excepteur butcher
+                            vice lomo.
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion"
+                               href="#collapseThree">
+                                点击我进行展开，再次点击我进行折叠。第 3 部分
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapseThree" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            Nihil anim keffiyeh helvetica, craft beer labore wes anderson
+                            cred nesciunt sapiente ea proident. Ad vegan excepteur butcher
+                            vice lomo.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div CLASS='body_right'>
+            <table class="table table-hover">
+                <p>
+                    <a href=''>+增加新数据</a>
+                </p>
+                <thread>
+                    <tr>
+                        <th>Id</th>
+                        <th>Name</th>
+                        <th>Host</th>
+                        <th>Port</th>
+                        <th>system</th>
+                        <th>operate</th>
+                    </tr>
+                </thread>
+                <tbody>
+                    {% for item in data %}
+                    <tr>
+                        <td name='id'>{{ item.id }}</td>
+                        <td name='name'>{{ item.name }}</td>
+                        <td name='host'>{{ item.host }}</td>
+                        <td name='port'>{{ item.port }}</td>
+                        <td name='system'>{{ item.system }}</td>
+                        <td><span name='look' data-toggle="modal" data-target="#myModal">查看</span>|<a name='del'>删除</a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <!-- 模态框（Modal） -->
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                &times;
+                            </button>
+                            <h4 class="modal-title" id="myModalLabel">
+                                id为{{ item.id }}的服务器信息
+                            </h4>
+                        </div>
+                        <div class="modal-body">
+                            <table id='t1' border='1'>
+                                <tr>
+                                    <td>id</td>
+                                    <td name='m_id'></td>
+                                </tr>
+                                <tr>
+                                    <td>name</td>
+                                    <td name='m_name'></td>
+                                </tr>
+                                <tr>
+                                    <td>host</td>
+                                    <td name='m_host'></td>
+                                </tr>
+                                <tr>
+                                    <td>port</td>
+                                    <td name='m_port'></td>
+                                </tr>
+                                <tr>
+                                    <td>system</td>
+                                    <td name='m_system'></td>
+                                </tr>
+                                <tr>
+                                    <td>state</td>
+                                    <td name='m_state'></td>
+                                </tr>
+                                <tr>
+                                    <td>addr</td>
+                                    <td name='m_addr'></td>
+                                </tr>
+                                <tr>
+                                    <td>command</td>
+                                    <td name='m_command'></td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+                            </button>
+                        </div>
+                    </div><!-- /.modal-content -->
+                </div><!-- /.modal -->
+            </div>
+        </div>
+    </div>
+    <script src='/static/jquery-3.3.1.js'></script>
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="/static/bootstrap-3.3.7-dist/js/bootstrap.js"></script>
+    <script>
+        var link = $("[name='look']");
+        console.log(link);
+        link.each(function () {
+            $(this).click(function () {
+                var abs;
+                var ids = $(this).parent().siblings("[name='id']").text();
+                {% for i in data %}
+                    if( {{ i.id }} ==ids){
+                        var r_id = {{ i.id }}
+                        var r_name = '{{ i.name }}';
+                        var r_host = '{{ i.host }}';
+                        var r_port = '{{ i.port }}';
+                        var r_system = '{{ i.system }}';
+                        var r_state = '{{ i.state }}';
+                        var r_addr = '{{ i.addr }}';
+                        var r_command = '{{ i.command }}';
+                        $('#t1 [name="m_id"]').text(r_id);
+                        $('#t1 [name="m_host"]').text(r_host);
+                        $('#t1 [name="m_port"]').text(r_port);
+                        $('#t1 [name="m_name"]').text(r_name);
+                        $('#t1 [name="m_addr"]').text(r_addr);
+                        $('#t1 [name="m_state"]').text(r_state);
+                        $('#t1 [name="m_system"]').text(r_system);
+                        $('#t1 [name="m_command"]').text(r_command);
+                        $('#myModalLabel').text('id为{{ i.id }}的服务器信息')
+                    }
+                {% endfor %}
+            })
+        })
+    </script>
+</body>
+</html>

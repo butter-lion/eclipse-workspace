@@ -1,0 +1,151 @@
+{% extends 'book/book_base.html' %}
+
+{% block title %}Publishers{% endblock %}
+
+{% block style %}
+    <style>
+        .table_add{
+            font-size: 20px;
+            padding-top: 10px;
+
+        }
+        .fade_left{
+            font-size: 20px;
+            padding: 10px;
+            text-align: right;
+            width: 150px;
+            padding-right: 20px;
+        }
+        .fade_right{
+            font-size: 20px;
+            padding: 10px;
+        }
+    </style>
+{% endblock %}
+
+
+{% block table %}
+    <div class='table_add' ><a href='/book/publishers_add/'> +添加数据</a></div>
+    <thread>
+        <tr>
+            <th>名字</th>
+            <th>country</th>
+            <th>city</th>
+            <th>address</th>
+            <th>出版书籍</th>
+            <th>网站</th>
+            <th>操作</th>
+        </tr>
+    </thread>
+    <tbody>
+        {% for publisher in publishers_list %}
+        <tr>
+            <td>{{ publisher.name }} </td>
+            <td>{{ publisher.country }}</td>
+            <td>{{ publisher.city }}</td>
+            <td>{{ publisher.address }}</td>
+            <td>
+                {% for b in publisher.books.all %}
+                    《{{ b.title }}》
+                    </br>
+                {% endfor %}
+            </td>
+            <td>{{ publisher.website }}</td>
+            <td id='{{ publisher.id }}'><a class='updata' href='/book/publishers_set-{{ publisher.id }}/'>修改</a>|<a class='delete' href='' data-toggle="modal" data-target="#myModal">删除</a>
+        </tr>
+        {% endfor %}
+    </tbody>
+{% endblock %}
+
+{% block pages %}
+    <div class='page_list'>
+        {{ page_str|safe }}
+    </div>
+{% endblock %}
+
+{% block body %}
+    <!-- 模态框（Modal） -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        &times;
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">
+                        模态框（Modal）标题
+                    </h4>
+                </div>
+                <div class="modal-body" id='myModelFade'>
+                    <table>
+                        <tr>
+                            <td class='fade_left'>名字:</td>
+                            <td name='pub_name' class='fade_right'></td>
+                        </tr>
+                        <tr>
+                            <td class='fade_left'>国家:</td>
+                            <td name='pub_country' class='fade_right'></td>
+                        </tr>
+                        <tr>
+                            <td class='fade_left'>城市:</td>
+                            <td name='pub_city' class='fade_right'></td>
+                        </tr>
+                        <tr>
+                            <td class='fade_left'>地址:</td>
+                            <td name='pub_address' class='fade_right'></td>
+                        </tr>
+                        <tr>
+                            <td class='fade_left'>出品书籍:</td>
+                            <td name='pub_books' class='fade_right'></td>
+                        </tr>
+                        <tr>
+                            <td class='fade_left'>网站:</td>
+                            <td name='pub_web' class='fade_right'></td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+                    </button>
+                    <a id='fade_del' href='/book/authors/'><button type="button" class="btn btn-primary">
+                        确认删除
+                    </button></a>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal -->
+    </div>
+
+
+{% endblock %}
+
+{% block script %}
+    <script>
+        $('.delete').click(function () {
+            var nid = $(this).parent().attr("id");
+            console.log(nid);
+            {% for pub in publishers_list %}
+                if ({{ pub.id }} == nid){
+                    var pname = '{{ pub.name }}';
+                    var pcountry = '{{ pub.country }}';
+                    var pcity = '{{ pub.city }}';
+                    var paddr = '{{ pub.address }}';
+                    var pweb = '{{ pub.website }}';
+                    var pb = [];
+                    {% for book in pub.books.all %}
+                        book = '《{{ book.title }}》';
+                        pb.push(book);
+                    {% endfor %}
+                    $('#myModalLabel').text('确定删除出版社 “{{ pub.name }}”');
+                    $('#myModelFade [name="pub_name"]').text(pname);
+                    $('#myModelFade [name="pub_country"]').text(pcountry);
+                    $('#myModelFade [name="pub_city"]').text(pcity);
+                    $('#myModelFade [name="pub_address"]').text(paddr);
+                    $('#myModelFade [name="pub_books"]').text(pb);
+                    $('#myModelFade [name="pub_web"]').text(pweb);
+                    $('#fade_del').prop('href','/book/publishers_del-{{ pub.id }}')
+                }
+            {% endfor %}
+        })
+    </script>
+
+{% endblock %}

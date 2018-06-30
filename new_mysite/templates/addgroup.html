@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My State</title>
+    <style>
+        body{
+            margin: 0;
+        }
+        .pg_header{
+            height: 48px;
+            position: fixed;
+            background-color: red;
+            left: 0;
+            right: 0;
+            top: 0;
+
+        }
+        .pg_body{
+            margin-top: 50px;
+        }
+        .pg_left{
+            float: left;
+            width: 200px;
+            height: 500px;
+            background-color: #1AC567;
+        }
+        .pg_right{
+            float: left;
+            width: 500px;
+        }
+    </style>
+</head>
+<body>
+    <div class='pg_header'>
+        我啦啦啦啦啦啦！ 哈哈哈哈哈哈哈哈
+    </div>
+    <div class='pg_body'>
+        <div class='pg_left'>
+            <p><a href='/cmdb/state'>用户列表</a></p>
+            <p><a href='/cmdb/group'>用户组管理</a></p>
+        </div>
+        <div class='pg_right'>
+            <h3>新增用户组</h3><form action='' method='post'>
+                <p>组名：<input type='text' name = cf></p>
+                <p>所属：<input type='text' name = cp></p>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type='submit' value='提交'><span style='color: red;'>{{ msg }}</span></p>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>
